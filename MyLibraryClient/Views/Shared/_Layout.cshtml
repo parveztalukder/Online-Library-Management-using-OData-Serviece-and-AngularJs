@@ -1,0 +1,1113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="AML Library,Book,Category,Library Management" />
+    <link href="//fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
+    <!-- titles -->
+    <link href="//fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
+    <!-- body -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+
+   
+    <script src="~/Scripts/angular.js"></script>
+
+    <script src="~/app/AnonymousA/app/app.js"></script>
+    <script src="~/app/AnonymousA/service/MessageService.js"></script>
+    <script src="~/app/AnonymousA/controller/MessageController.js"></script>
+    <script src="~/app/AnonymousA/service/SubscribService.js"></script>
+    <script src="~/app/AnonymousA/controller/SubscribController.js"></script>
+
+    <title>RPS Online Library</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="~/CSS/bootstrap.css" rel="stylesheet" />
+    <link href="~/CSS/shop.css" rel="stylesheet" />
+    <link href="~/CSS/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/css2/bootstrap.css" rel="stylesheet" />
+    <link href="~/css2/shop.css" rel="stylesheet" />
+    <link href="~/css2/style.css" rel="stylesheet" />
+    <link href="~/css2/font-awesome.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div id="home">
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="nav" style="background-color:darkblue;height:80px">
+            <div class="main-nav" id="home">
+                <div class="container">
+                    <div class="navbar-header page-scroll">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only" style="display:block">RPS Library</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <h1>
+                            <a class="navbar-brand" href="#"><span style="color:goldenrod">RPS</span> <span style="color:olive">Library</span></a>
+                        </h1>
+
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse nav-right">
+                        <ul class="nav navbar-nav navbar-left cl-effect-15">
+                            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                            <li class="hidden">
+                                <a class="page-scroll" href="#page-top"></a>
+                            </li>
+                            <li>
+                                <a href="#home">Home</a>
+                            </li>
+                            <li>
+                                <a href="#team">about us</a>
+                            </li>
+                      
+                            <li>
+                                <a href="#contact">Contact us</a>
+                            </li>
+                           
+
+                          
+                            <li>
+                                <a href="http://rpsonlinelibrary.blogspot.com/" target="_blank">Blog</a>
+                            </li>
+                          
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle effect-3" data-toggle="dropdown">
+                                    Books
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="#math" style="color:darkblue">Read Books</a>
+                                    </li>
+                              
+                                    <li>
+                                        @Html.ActionLink("Buy Book", "Index", "Sales")
+                                    </li>
+
+                                    <li>
+
+                                        @Html.ActionLink("Borrow Books", "Index", "User")
+                                    </li>
+                                    @*<li>
+                                        <a href="#math">New Release</a>
+                                    </li>
+                                    <li>
+                                        <a href="#phy">Upcoming Books</a>
+                                    </li>*@
+                                </ul>
+                            </li>
+
+
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown"><strong>Admin Panel</strong><b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a><strong>Call:</strong>+8801725649531</a></li>
+                                    <li><a><strong>Mail:</strong>parveztalukder15@gmail.com</a></li>
+                                    
+                                    @*<li class="divider"></li>*@
+                                    <li>
+                                        <a>
+                                            <strong>Visit Our Library :</strong>
+                                            <div>
+                                                127, Mohamudpur, <br />
+                                                Dhaka, Bangladesh
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <strong> @Html.ActionLink("Borrow Section", "Index", "Admin")</strong>
+                                    </li>
+                                    <li>
+                                        <strong> @Html.ActionLink("Sales Section", "Index", "SAdmin")</strong>
+                                    </li>
+                                </ul>
+                            </li>
+                            @*<li>
+                                @Html.ActionLink("Admin", "Index", "Admin")
+                            </li>*@
+
+                        </ul>
+                        <!-- search-bar -->
+                        @*<div class="search-bar-agileits">
+                            <div class="cd-main-header">
+                                <ul class="cd-header-buttons">
+                                    <li>
+                                        <a class="cd-search-trigger" href="#cd-search">
+                                            <span></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                 cd-header-buttons 
+                            </div>
+                            <div id="cd-search" class="cd-search">
+                                <form action="#" method="post">
+                                    <input name="Search" type="search" placeholder="Type and Hit Enter...">
+                                </form>
+                            </div>
+                        </div>*@
+                        <!-- //search-bar ends here -->
+                        <!-- shopping cart -->
+                        <!-- //shopping cart ends here -->
+
+                    </div>
+                    <!-- /.navbar-collapse -->
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </nav>
+        <!-- //navbar ends here -->
+        <!-- banner -->
+        <hr />
+        <hr />
+        <div class="container">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                    <li data-target="#myCarousel" data-slide-to="3"></li>
+                    <li data-target="#myCarousel" data-slide-to="4"></li>
+                    <li data-target="#myCarousel" data-slide-to="5"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img src="~/images/l1.jpg" style="width:1300px; height:400px" />
+                        <!--<img src="https://placehold.it/800x400?text=IMAGE" alt="Image">-->
+                        <div class="carousel-caption">
+                            <h3>Library</h3>
+                            <p>Management</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="~/images/l2.jpg" style="width:1300px; height:400px" />
+                        <!--<img src="https://placehold.it/800x400?text=Another Image Maybe" alt="Image">-->
+                        <div class="carousel-caption">
+                            <h3>Library</h3>
+                            <p>Management</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/images/l3.jpg" style="width:1300px; height:400px" />
+
+                        <div class="carousel-caption">
+                            <h3>Library</h3>
+                            <p>Management</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/images/l4.jpg" style="width:1300px; height:400px" />
+                        <!--<img src="https://placehold.it/800x400?text=IMAGE" alt="Image">-->
+                        <div class="carousel-caption">
+                            <h3>Library</h3>
+                            <p>Management</p>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <img src="~/images/l5.jpg" style="width:1300px; height:400px" />
+                        <!--<img src="https://placehold.it/800x400?text=Another Image Maybe" alt="Image">-->
+                        <div class="carousel-caption">
+                            <h3>Library</h3>
+                            <p>Management</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="~/images/l6.jpg" style="width:1300px; height:400px" />
+
+                        <div class="carousel-caption">
+                            <h3>Library</h3>
+                            <p>Management</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+
+            </div>
+        </div>
+    </div>
+    <!-- //banner -->
+    <!-- about -->
+    <!-- about left bottom - services -->
+    <!-- //about left bottom - services ends here -->
+    <!--for Image-->
+
+    <div id="all">
+        <div class="about-sec section" id="about">
+            <div class="container" id="math">
+                <div class="row" style="margin-left: 90px; margin-right: 90px;color: #34c663;background-color:goldenrod;height:60px">
+                    <marquee><h2  style="background-color:darkblue;text-align:center;height:60px;font-size:48px;">Read Book As You Like.</h2></marquee>
+
+                </div>
+
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/baluchor.jpg" alt="">
+
+                        </div>
+                 
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/baluchor-by-jasimuddin.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/bamunermeye.jpg" alt="">
+
+                        </div>
+                  
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/BAMUNER-MEYE-By-Sarat-Chandra.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/borodidi.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/BORO-DIDI-By-Sarat-Chandra.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/botolvut.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Botol Bhut By Humayun Ahmed.PDF">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/chhuti.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Chhuti.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/denpana.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Denapawna.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/debdas.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/DEVDAS-By-Sarat-Chandra.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/didi.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Didi.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/dristidan.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Drishtidan.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/ghaterkotha.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Ghater Kotha.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/golperjadukor.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Golper Jadukar by Ahsan Habib.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/nokshikatarmath.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/jasimuddin_nokshi_kanthar_maath.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/joyporajoy.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Joy Porajoy.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/aughnibina.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/kazi_nazrul_islam_agnibina.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/bisherbashi.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/kazi_nazrul_islam_bisher_banshi.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/moruvaskor.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/kazi_nazrul_islam_maru_vashkar.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/sonchita.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/kazi_nazrul_islam_sanchita.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/kobor.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/kobor-by-jasimuddin.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/patherdabi.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/PATHER-DABI-By-Sarat-Chandra.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/rakhaligan.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/rakhali-gaan-by-jasimuddin.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/rakkhoskhokkos.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Rakkhos Khokkhos Ebong Bhokkhos by Humayun Ahmed.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+                <div class="col-md-3 product-men">
+                    <div class="product-chr-info chr">
+                        <div class="thumbnail">
+
+                            <img style="height: 290px; width: 180px;" src="~/images/somudrerdak.jpg" alt="">
+
+                        </div>
+
+                        <h5 style="text-align:center;color:darkblue"><a href="~/pdf/Shomudrer Dak by Ahsan Habib.pdf">Read Now</a></h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div id="phy" class="row" style="margin-left: 90px; margin-right: 90px; color: #34c663;height:60px;background-color:deeppink">
+                <marquee><h2 style="background-color:darkblue;height:60px;text-align:center;font-size:48px;">Upcoming Books </h2></marquee>
+
+            </div>
+
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/nazul1.jpg" alt="">
+
+                    </div>
+                  
+
+                </div>
+            </div>
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/nazrul2.jpg" alt="">
+
+                    </div>
+                  
+
+                </div>
+            </div>
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/nazrul3.jpg" alt="">
+
+                    </div>
+                  
+
+                </div>
+            </div>
+
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/nazrul4.jpg" alt="">
+
+                    </div>
+                   
+
+                </div>
+            </div>
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/rabindranath1.jpg" alt="">
+
+                    </div>
+                  
+
+                </div>
+            </div>
+
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/rabindranath2.jpg" alt="">
+
+                    </div>
+                  
+
+                </div>
+            </div>
+
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/rabindranath3.jpg" alt="">
+
+                    </div>
+                  
+
+                </div>
+            </div>
+
+            <div class="col-md-3 product-men">
+                <div class="product-chr-info chr">
+                    <div class="thumbnail">
+
+                        <img style="height: 290px; width: 180px;" src="~/images/rabindranath4.jpg" alt="">
+
+                    </div>
+                   
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- //about ends here -->
+    <!-- team -->
+  
+    <div id="phy" class="row" style="margin-left: 90px; margin-right: 90px; color: #34c663">
+        <marquee><h2 style="background-color:darkblue">About Us</h2></marquee>
+
+    </div>
+    <div id="team" class="team section">
+        <div class="team-container">
+            <div class="team-row">
+                <!-- team grid1 -->
+                <div class="col-md-5 team-grid-left">
+                    <!-- team individual grid -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                        <div class="team-effect">
+                            <img src="~/images/parvez.jpg" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="http://www.facebook.com/mdmoonyparvez" class="social-button facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>Parvez Talukder</h4>
+                            <span>Jr. Programmer</span>
+                            <p>Maintain the whole system</p>
+
+                        </div>
+                    </div>
+                    <!-- //team individual grid -->
+                    <!-- team individual grid -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+
+                        <div class="team-effect">
+                            @*<img src="~/images/parvez.jpg" alt="img" class="img-responsive">*@
+                            <img src="~/images/rabirana.jpg" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-button facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>Rabiul Awal</h4>
+                            <span>Jr. Programmer</span>
+                            <p>Maintain the whole system</p>
+
+                        </div>
+                        <!-- //team individual grid -->
+                    </div>
+                </div>
+                <!-- //team-grid1 ends here-->
+                <!--team-grid2 -->
+                <div class="col-md-2 col-sm-2 team-mid-txt text-center">
+                    <span><a style="color:darkblue">O</a><a style="color:deeppink">U</a><a style="color:green">R</a></span>
+                    <h5 style="color:green">t</h5>
+                    <h5 style="color:blue">e</h5>
+                    <h5 style="color:yellowgreen">a</h5>
+                    <h5 style="color:gold">m</h5>
+                </div>
+                <!--//team-grid2 ends here-->
+                <!-- team grid3 -->
+                <!-- team individual grid -->
+                <div class="col-md-5 team-grid-right">
+                    <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+
+                        <div class="team-effect">
+                            <img src="~/images/shahnewaj.jpg" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-button facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>Shah Newaj</h4>
+                            <span>Jr. Programmer</span>
+                            <p>Maintain the whole system</p>
+
+                        </div>
+                    </div>
+                    <!-- //team individual grid -->
+                    <!-- team individual grid -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                        <div class="team-effect">
+                            <img src="~/images/parvez.jpg" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>Parvez Talukder</h4>
+                            <span>Sr. Programmer</span>
+                            <p>Maintain the whole system</p>
+
+                        </div>
+                    </div>
+                    <!-- //team individual grid -->
+                    <div class="clearfix"> </div>
+                </div>
+                <!-- //team grid3 -->
+                <div class="clearfix"> </div>
+            </div>
+            <!-- //team-row ends here -->
+        </div>
+        <!-- // team container ends here -->
+    </div>
+    <!-- //team -->
+    <!-- //testimonials-->
+
+    <div class="container body-content">
+        @RenderBody()
+
+
+
+    </div>
+
+    <div id="contact">
+        <!-- header -->
+        <!-- navbar -->
+        <!-- //navbar ends here -->
+        <!-- banner -->
+        <!-- //banner -->
+        <!-- breadcrumbs -->
+        <div class="crumbs text-center">
+            <div class="container">
+                <div class="row">
+                    <ul class="btn-group btn-breadcrumb bc-list">
+                        <li class="btn btn1">
+                            <a href="#home">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </a>
+                        </li>
+                        <li class="btn btn2">
+                            <a href="#contact">contact us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--//breadcrumbs ends here-->
+        <!-- contact -->
+        <div class="section contact" id="contact">
+            <div class="container">
+                <h4 class="rad-txt text-center">
+                    <span class="abtxt1">contact</span>
+                    <span class="abtext">us</span>
+                </h4>
+                <div class="contact-form">
+                    <div class="col-md-7">
+                        <!-- contact form grid -->
+                        <div class="contact-top1" ng-app="myApp">
+                            <h5>send us a note</h5>
+                            <form class="form_w3layouts" method="post" ng-controller="MessageCtrl">
+                                <input type="text" placeholder="First Name" required="" ng-model="firstName">
+                                <input type="text" placeholder="Last Name" required="" ng-model="lastName"><br />
+
+                                <input class="email" type="email" placeholder="Email" required="" ng-model="email"><br />
+                                <textarea placeholder="Message" required="" ng-model="feedback"></textarea><br />
+                                <input type="submit" value="Send Message" ng-click="SendMessage()">
+                            </form>
+                        </div>
+                        <!--  //contact form grid ends here -->
+                    </div>
+                    <!-- contact map grid -->
+                    <div class="col-md-5 map contact-right">
+                        <div class="contact-top1">
+                            <h5>get directions</h5>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.8834965454653!2d90.38372331434843!3d23.751533594651292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8afc5d28667%3A0x7e461056d052d494!2sPanthapath%2C+Dhaka+1205%2C+Bangladesh!5e0!3m2!1sen!2sin!4v1532588353210" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+                        </div>
+                    </div>
+                    <!--//contact map grid ends here-->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- contact details -->
+                <div class="contact-bottom">
+                    <h6>contact info</h6>
+                    <!-- contact details left -->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="contact-left">
+                            <div class="address">
+                                <h5>Address:</h5>
+                                <p>
+                                    32/2,Shahidbagh,Dhaka-1217
+                                    <br> Bangladesh.
+                                </p>
+                            </div>
+                            <div class="address address-mdl">
+                                <h5>phone:</h5>
+                                <p>
+                                    01725-649531
+                                </p>
+                                <p>
+                                    01683003435
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- //contact details left -->
+                    <!-- contact details right -->
+                    <div class="col-md-6 col-sm-6">
+                        <div class="contact-right">
+                            <div class="address">
+                                <h5>Email:</h5>
+                                <p>
+                                    <a href="mailto:parveztalukder15@gmail.com">parveztalukder15@gmail.com</a>
+                                </p>
+                                <p>
+                                    <a href="rabirana10@gmail.com">rabirana10@gmail.com</a>
+                                </p>
+                                <p>
+                                    <a href="jhon@gmail.com">jhon@gmail.com</a>
+                                </p>
+                            </div>
+                            <div class="footer-social address  address-mdl">
+                                <h5>let's get social</h5>
+                                <ul>
+                                    <li>
+                                        <a href="https://www.facebook.com/rabiranax">
+                                            <span class="fa fa-facebook icon_facebook"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-twitter icon_twitter"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-dribbble icon_dribbble"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="fa fa-google-plus icon_g_plus"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- //contact-details right -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //contact details ends here -->
+            </div>
+        </div>
+        <!-- //contact -->
+        <!-- footer -->
+        <div class="footer-bottom section">
+            <div class="container" ng-app="myApp">
+                <!-- newsletter -->
+                <div class="subscribe-main section-w3layouts text-center">
+                    <video controls="controls" width="600" height="400">
+                        <source src="~/videos/library.mp4" type="video/mp4" />
+                       
+                    </video>
+                    </div>
+
+                   
+                </div>
+                <!-- //newsletter ends here -->
+                <!-- footer grids-->
+                <div class="footer-cpy">
+                    <!-- footer-grid1 -->
+                    <div class="col-md-3 col-sm-6 footer-logo">
+                        <h3>
+                            <a href="index.html">RPS Library</a>
+                        </h3>
+                        <h4>about us</h4>
+                        <p>This is our new online library. You can read, buy and borrow books from here. Our main target is to serve you.</p>
+                    </div>
+                    <!-- //footer-grid1 -->
+                    <!-- footer-grid2 -->
+                    <div class="col-md-3 col-sm-6 footer-nav text-center">
+                        <h4>navigation</h4>
+                        <ul>
+                            <li>
+                                <a href="#home">Home</a>
+                            </li>
+                            <li>
+                                <a href="#team">About us</a>
+                            </li>
+
+                            <li>
+                                <a href="#contact">contact us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //footer-grid2 -->
+                    <!-- footer-grid3 -->
+                    <div class="col-md-3 col-sm-6 blog-footer">
+                        <h4>latest from blog</h4>
+                        <div class="blog1">
+                            <div class="col-md-3 col-sm-3 col-xs-2 bl1">
+                                <a href="#">
+                                    <img src="images/b1.jpg" alt="" class="img-responsive" />
+                                </a>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-10 bl2">
+                                <a href="#">Dapibus Suscipit Ante Sit by instagram</a>
+                                <p>February 15, 2018</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog1">
+                            <div class="col-md-3 col-sm-3 col-xs-2 bl1">
+                                <a href="#">
+                                    <img src="images/b2.jpg" alt="" class="img-responsive" />
+                                </a>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-10 bl2">
+                                <a href="#">Dapibus Suscipit Ante Sit by instagram</a>
+                                <p>February 20, 2018</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <!-- //footer-grid3 -->
+                    <!-- footer-grid4 -->
+                    <div class="col-md-3 col-sm-6 contact-foot text-right">
+                        <h4>contact us</h4>
+                        <ul>
+                            <li>
+                                <span class="fa fa-home"></span>
+                                32/2,Shahidbagh,Dhaka-1217
+                                <br> Bangladesh.
+                            </li>
+                            <li>
+                                <span class="fa fa-phone"></span>
+                                +8801725-649531
+                            </li>
+                            <li>
+                                <span class="fa fa-envelope"></span>
+                                <a href="mailto:parveztalukder15@gmail.com">parveztalukder15@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //footer-grid4 -->
+                    <div class="clearfix"></div>
+                </div>
+                <!-- //footer-grids -->
+                <!-- footer social -->
+                <div class="footer-social text-center">
+                    <h4>stay connected</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.facebook.com/mdmoonyparvez">
+                                <span class="fa fa-facebook icon_facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-twitter icon_twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-dribbble icon_dribbble"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-google-plus icon_g_plus"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- //footer social -->
+            </div>
+            <!-- //footer container -->
+        </div>
+        <!-- //footer -->
+        <div class="cpy-right">
+            <p>
+                © 2018 RPS Library. All rights reserved.
+
+            </p>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/scrolling-nav.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideDown("fast");
+                    $(this).toggleClass('open');
+                },
+                function () {
+                    $('.dropdown-menu', this).stop(true, true).slideUp("fast");
+                    $(this).toggleClass('open');
+                }
+            );
+        });
+    </script>
+    <script src="~/Scripts/move-top.js"></script>
+    <script src="~/Scripts/easing.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+
+                $('html,body').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $().UItoTop({
+                easingType: 'easeOutQuart'
+            });
+
+        });
+    </script>
+    <script src="~/Scripts/SmoothScroll.min.js"></script>
+    <script src="~/Scripts/numscroller-1.0.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() { 
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            //  slides[slideIndex - 1].style.display = "block";
+            // dots[slideIndex - 1].className += "active";
+            setTimeout(showSlides, 6000); // Change image every 6 seconds
+        }
+    </script>
+
+</body>
+</html>
